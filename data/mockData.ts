@@ -44,25 +44,50 @@ export const modules: Module[] = [
         id: 4,
         title: "Урок 4: Условные операторы и циклы (на примере Scratch или Python).",
         youtubeUrl: "https://www.youtube.com/embed/ysWS0JHqMdE?si=JFW64PAO4d1d9pev",
-        homework: `Написать программу с условными операторами и циклами.`,
+        homework: `Перейдите по ссылке: https://blockly.games/maze?lang=en
+                  Пройдите игру «Maze» (лабиринт).
+                  Сделайте скриншоты с вашими ответами.
+                  Отправьте скриншоты в качестве выполнения задания.
+                  `,
       },
       {
         id: 5,
         title: "Урок 5: Code Editor, основы HTML.",
         youtubeUrl: "https://www.youtube.com/embed/HGTJBPNC-Gw?si=K2fKgoglyBL9keK1",
-        homework: "Создать функцию для расчета суммы двух чисел.",
+        homework: `Создать HTML-страницу index.html с таким содержимым:
+                    Заголовок <h1> с текстом «Моя первая страница».
+                    Добавить атрибут style, чтобы изменить цвет текста.
+                    Картинку через тег <img>:
+                    Использовать атрибуты src, alt, width.
+                    Проверить, что картинка отображается и что alt-текст появляется, если картинки нет.
+                    Ссылку <a> на любой сайт:
+                    Применить атрибут href и target="_blank".
+                    Параграф <p> с любым текстом.
+                    Добавить атрибут title, чтобы при наведении мышки появлялась подсказка.`,
       },
       {
         id: 6,
         title: "Урок 6: Что такое CSS, как связывать HTML и CSS.",
         youtubeUrl: "https://www.youtube.com/embed/HGTJBPNC-Gw?si=K2fKgoglyBL9keK1",
-        homework: "Проанализировать сложность простого алгоритма.",
+        homework: `Создать проект с файлами:
+                    index.html
+                    style.css
+                    Задачи:
+                    В index.html создать:
+                    Заголовок <h1> с текстом «Моя первая страница с CSS».
+                    Параграф <p> с любым текстом.
+                    Кнопку <button> с текстом «Нажми меня».
+                    В style.css оформить:
+                    Для <h1>: красный цвет текста.
+                    Для <p>: размер шрифта 18px, цвет — серый.
+                    Для <button>: зелёный фон, белый текст, скруглённые углы.
+                    Связать style.css с index.html через тег <link> в <head>.`,
       },
       {
         id: 7,
         title: "Урок 7: О мире веб-разработки(Frontend and Backend).",
         youtubeUrl: "https://www.youtube.com/embed/HGTJBPNC-Gw?si=K2fKgoglyBL9keK1",
-        homework: "Написать код для работы со строками и массивами.",
+        homework: "Рассказать о том кем вы хотели бы стать в будущем.",
       },
       {
         id: 8,

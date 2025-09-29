@@ -22,8 +22,9 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
     );
   }
 
-  const module = modules.find((m) => m.id === selectedLesson.moduleId);
-  const lesson = module?.lessons.find((l) => l.id === selectedLesson.lessonId);
+  // ✅ Переименовал переменную
+  const selectedModule = modules.find((m) => m.id === selectedLesson.moduleId);
+  const lesson = selectedModule?.lessons.find((l) => l.id === selectedLesson.lessonId);
 
   if (!lesson) {
     return (
@@ -36,13 +37,12 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // Validate file type
       const allowedTypes = [
         'application/pdf',
         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
         'text/plain',
         'image/png',
-        'image/jpeg'
+        'image/jpeg',
       ];
 
       if (!allowedTypes.includes(file.type)) {
@@ -51,8 +51,7 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
         return;
       }
 
-      // Validate file size (10MB limit)
-      const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+      const maxSize = 10 * 1024 * 1024; // 10MB
       if (file.size > maxSize) {
         setMessage({ type: 'error', text: 'Файл слишком большой. Максимальный размер: 10MB' });
         setSelectedFile(null);
@@ -97,7 +96,6 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
         setMessage({ type: 'success', text: 'Домашняя работа успешно отправлена!' });
         setSelectedFile(null);
         setStudentName('');
-        // Clear file input
         const fileInput = document.getElementById('homework-file') as HTMLInputElement;
         if (fileInput) fileInput.value = '';
       } else {
@@ -134,7 +132,6 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
       <div className="w-full max-w-2xl mb-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
         <h3 className="text-lg font-semibold mb-4">Отправка домашней работы</h3>
 
-        {/* Student Name Input */}
         <div className="mb-4">
           <label htmlFor="student-name" className="block text-sm font-medium text-gray-700 mb-2">
             Ваше имя *
@@ -150,7 +147,6 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
           />
         </div>
 
-        {/* File Upload Input */}
         <div className="mb-4">
           <label htmlFor="homework-file" className="block text-sm font-medium text-gray-700 mb-2">
             Выберите файл *
@@ -173,7 +169,6 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
           )}
         </div>
 
-        {/* Submit Button */}
         <button
           onClick={handleSubmitHomework}
           disabled={isSubmitting || !selectedFile || !studentName.trim()}
@@ -182,13 +177,14 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
           {isSubmitting ? 'Отправляем...' : 'Отправить домашнюю работу'}
         </button>
 
-        {/* Messages */}
         {message && (
-          <div className={`mt-4 p-3 rounded-md ${
-            message.type === 'success'
-              ? 'bg-green-50 text-green-800 border border-green-200'
-              : 'bg-red-50 text-red-800 border border-red-200'
-          }`}>
+          <div
+            className={`mt-4 p-3 rounded-md ${
+              message.type === 'success'
+                ? 'bg-green-50 text-green-800 border border-green-200'
+                : 'bg-red-50 text-red-800 border border-red-200'
+            }`}
+          >
             {message.text}
           </div>
         )}
