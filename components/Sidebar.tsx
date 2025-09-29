@@ -71,14 +71,14 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedLesson, onLessonSelect }) => 
             {module.lessons.map((lesson) => (
               <li
                 key={lesson.id}
-                className={`p-[5px] cursor-pointer rounded-md mb-1 transition-all duration-300 ease-in-out text-[#727272] list-none ${
+                className={`p-[5px] cursor-pointer rounded-md mb-1 transition-all duration-300 ease-in-out text-[#727272] hover:text-[#141414] list-none ${
                   selectedLesson?.moduleId === module.id && selectedLesson?.lessonId === lesson.id
                     ? 'bg-blue-200'
                     : 'hover:bg-gray-200'
-                } ${lesson.isCompleted ? 'text-green-600' : 'text-[#727272] hover:text-[#141414]'}`}
+                }`}
                 onClick={() => handleLessonClick(module.id, lesson.id)}
               >
-                {lesson.title} {lesson.isCompleted && <Image src="/check.svg" width="14" height="14" alt='arrow' />}
+                {lesson.title}
               </li>
             ))}
           </ul>

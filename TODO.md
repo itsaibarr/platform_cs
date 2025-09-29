@@ -1,0 +1,5 @@
+- [x] Edit components/Sidebar.tsx to remove check image and green color for completed lessons
+- [x] Edit components/LessonContent.tsx to remove updateLessonCompletion call after homework submission
+- [x] Edit contexts/ProgressContext.tsx to remove all progress tracking logic (isCompleted, localStorage, updateLessonCompletion, getCurrentLesson, getNextLesson)
+- [x] Edit data/mockData.ts to remove isCompleted field from Lesson interface and all lesson objects
+- [x] Delete public/check.svg file

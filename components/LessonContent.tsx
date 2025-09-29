@@ -8,7 +8,7 @@ interface LessonContentProps {
 }
 
 const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
-  const { modules, updateLessonCompletion } = useProgress();
+  const { modules } = useProgress();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [studentName, setStudentName] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -95,7 +95,6 @@ const LessonContent: React.FC<LessonContentProps> = ({ selectedLesson }) => {
 
       if (response.ok) {
         setMessage({ type: 'success', text: 'Домашняя работа успешно отправлена!' });
-        updateLessonCompletion(selectedLesson.moduleId, selectedLesson.lessonId, true);
         setSelectedFile(null);
         setStudentName('');
         // Clear file input
